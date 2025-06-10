@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Resumo - 50 Candidatos Selecionados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f7fa;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .filters {
+            padding: 20px 30px;
+            background: #fff;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-group label {
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        select, input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            padding: 0 30px 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+        }
+        
+        thead {
+            background: #f8f9fa;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+        
+        th:hover {
+            background-color: #e9ecef;
+        }
+        
+        th.sortable:after {
+            content: ' ↕';
+            color: #adb5bd;
+            font-size: 0.8em;
+        }
+        
+        th.sorted-asc:after {
+            content: ' ↑';
+            color: #667eea;
+        }
+        
+        th.sorted-desc:after {
+            content: ' ↓';
+            color: #667eea;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        tr {
+            transition: background-color 0.2s;
+        }
+        
+        tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .rank {
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .score {
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .score-high {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .score-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .score-low {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .area-tag {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .area-comercial { background: #e0f2fe; color: #075985; }
+        .area-financeiro { background: #ecfdf5; color: #064e3b; }
+        .area-inovacao { background: #fef3c7; color: #78350f; }
+        .area-inteligencia { background: #ede9fe; color: #5b21b6; }
+        .area-operacoes { background: #fce7f3; color: #831843; }
+        .area-marketing { background: #fee2e2; color: #7f1d1d; }
+        .area-desenvolvimento { background: #e0e7ff; color: #3730a3; }
+        .area-investimento { background: #d1fae5; color: #14532d; }
+        .area-default { background: #f3f4f6; color: #4b5563; }
+        
+        .gender-m { color: #3b82f6; }
+        .gender-f { color: #ec4899; }
+        
+        .location {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .language-tag {
+            padding: 2px 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-right: 4px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .filters { flex-direction: column; align-items: stretch; }
+            .filter-group { flex-direction: column; align-items: stretch; }
+            .table-container { padding: 0 10px 20px; }
+            th, td { padding: 8px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Processo Seletivo - Top 50 Candidatos</h1>
+            <p>Candidatos selecionados com score acima de 40%</p>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>50</h3>
+                <p>Total de Aprovados</p>
+            </div>
+            <div class="stat-card">
+                <h3>48.4%</h3>
+                <p>Score Médio</p>
+            </div>
+            <div class="stat-card">
+                <h3>70%</h3>
+                <p>Score Máximo</p>
+            </div>
+            <div class="stat-card">
+                <h3>8</h3>
+                <p>Áreas Diferentes</p>
+            </div>
+            <div class="stat-card">
+                <h3>70/30</h3>
+                <p>Proporção M/F (%)</p>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="searchInput">Buscar:</label>
+                <input type="text" id="searchInput" placeholder="Nome do candidato...">
+            </div>
+            <div class="filter-group">
+                <label for="areaFilter">Área:</label>
+                <select id="areaFilter">
+                    <option value="">Todas as áreas</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Desenvolvimento">Desenvolvimento e Novos Negócios</option>
+                    <option value="Financeiro">Financeiro</option>
+                    <option value="Inovação">Inovação e Tecnologia</option>
+                    <option value="Inteligência">Inteligência de Negócios</option>
+                    <option value="Investimento">Investimentos e M&A</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Operações">Operações</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="genderFilter">Gênero:</label>
+                <select id="genderFilter">
+                    <option value="">Todos</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="candidatesTable">
+                <thead>
+                    <tr>
+                        <th class="sortable sorted-desc" data-column="rank">#</th>
+                        <th class="sortable" data-column="name">Nome</th>
+                        <th class="sortable" data-column="score">Score</th>
+                        <th class="sortable" data-column="area">Área</th>
+                        <th class="sortable" data-column="gender">Gênero</th>
+                        <th class="sortable" data-column="location">Localização</th>
+                        <th class="sortable" data-column="degree">Graduação</th>
+                        <th>Idiomas</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Table content will be generated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>Dados atualizados em 10/06/2025 • Total de candidatos avaliados: 103</p>
+        </div>
+    </div>
+
+    <script>
+        const candidates = [
+            {rank: 1, name: "Miguel Thompson", score: 70.07, area: "Inteligência de Negócios", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 2, name: "João Pedro Da Costa", score: 68.55, area: "Inteligência de Negócios", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração Pública", languages: ["PT", "EN"]},
+            {rank: 3, name: "Davi Rosa", score: 68.74, area: "Operações", gender: "Masculino", location: "Duque de Caxias/RJ", degree: "Engenharia Civil", languages: ["PT"]},
+            {rank: 4, name: "Rian Marques", score: 67.61, area: "Inovação e Tecnologia", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "MBA Gestão de Negócios", languages: ["PT", "EN"]},
+            {rank: 5, name: "Gustavo da Silva Santos", score: 64.59, area: "Inteligência de Negócios", gender: "Masculino", location: "São Paulo/SP", degree: "Engenharia de Alimentos", languages: ["PT", "EN"]},
+            {rank: 6, name: "Rafael Marques Fernandes", score: 64.79, area: "Inovação e Tecnologia", gender: "Masculino", location: "São Paulo/SP", degree: "Sistemas de Informação", languages: ["PT", "EN"]},
+            {rank: 7, name: "Leonice Claudino Barbosa", score: 63.60, area: "Comercial", gender: "Feminino", location: "Serra Talhada/PE", degree: "Agronomia", languages: ["PT"]},
+            {rank: 8, name: "Gustavo Cioni", score: 63.01, area: "Comercial", gender: "Masculino", location: "São Paulo/SP", degree: "Administração Pública", languages: ["PT", "EN"]},
+            {rank: 9, name: "Isabella Fernanda Vilalba", score: 63.95, area: "Inteligência de Negócios", gender: "Feminino", location: "Senador Canedo/GO", degree: "Análise de Dados", languages: ["PT", "EN"]},
+            {rank: 10, name: "Fabio Paiva Greco Pereira", score: 63.70, area: "Inovação e Tecnologia", gender: "Masculino", location: "Santos/SP", degree: "Gerenciamento de Projetos", languages: ["PT", "EN"]},
+            {rank: 11, name: "Rodney Souza", score: 62.19, area: "Financeiro", gender: "Masculino", location: "São Paulo/SP", degree: "Economia", languages: ["PT", "EN"]},
+            {rank: 12, name: "Vinícius Marques Santana Do Vale", score: 61.96, area: "Inovação e Tecnologia", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Economia", languages: ["PT", "EN"]},
+            {rank: 13, name: "Carlos Eduardo Corrêa", score: 61.51, area: "Marketing", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 14, name: "Webert Miranda Barbosa Pereira", score: 58.66, area: "Operações", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 15, name: "Thiago Oliveira", score: 46.18, area: "Financeiro", gender: "Masculino", location: "Niterói/RJ", degree: "Contabilidade", languages: ["PT"]},
+            {rank: 16, name: "Rosana Vinco", score: 45.48, area: "Marketing", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 17, name: "Beatriz Santiago", score: 45.26, area: "Marketing", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Marketing", languages: ["PT", "EN"]},
+            {rank: 18, name: "Caio Cesar", score: 45.00, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 19, name: "Pedro Moreno", score: 45.00, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 20, name: "Pedro Henrique Rosa", score: 44.51, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 21, name: "Matheus Henrique Mendes Faria", score: 44.36, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 22, name: "Carlos Eduardo Silva", score: 44.24, area: "Inovação e Tecnologia", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Engenharia de Produção", languages: ["PT", "EN"]},
+            {rank: 23, name: "Bruno Da silveira rabelo", score: 44.49, area: "Investimentos e M&A", gender: "Masculino", location: "São Paulo/SP", degree: "Economia", languages: ["PT", "EN"]},
+            {rank: 24, name: "Mariana Araújo", score: 44.38, area: "Operações", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Engenharia Civil", languages: ["PT", "EN"]},
+            {rank: 25, name: "Tiago Santiago Guimarães", score: 44.03, area: "Operações", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Engenharia de Produção", languages: ["PT", "EN"]},
+            {rank: 26, name: "Ian Carneiro", score: 44.00, area: "Comercial", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 27, name: "Brenda Ribeiro", score: 43.48, area: "Marketing", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Publicidade", languages: ["PT", "EN"]},
+            {rank: 28, name: "Gabriela Mastrocezare", score: 43.48, area: "Operações", gender: "Feminino", location: "São Paulo/SP", degree: "Engenharia de Produção", languages: ["PT", "EN"]},
+            {rank: 29, name: "Gabriel Paiva", score: 42.99, area: "Comercial", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 30, name: "Igor Lamarc", score: 42.59, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 31, name: "Ana Clara Leite Nogueira", score: 42.17, area: "Operações", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Engenharia Civil", languages: ["PT", "EN"]},
+            {rank: 32, name: "Débora Araujo", score: 42.04, area: "Operações", gender: "Feminino", location: "São Paulo/SP", degree: "Arquitetura", languages: ["PT", "EN"]},
+            {rank: 33, name: "Rafaela Gavazza", score: 42.00, area: "Não especificada", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 34, name: "Bruna Maia de Miranda", score: 42.04, area: "Desenvolvimento e Novos Negócios", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Relações Internacionais", languages: ["PT", "EN"]},
+            {rank: 35, name: "Roberto Henrique Neves", score: 42.63, area: "Inteligência de Negócios", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 36, name: "Thayná Dias", score: 41.51, area: "Não especificada", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 37, name: "Luiza Bueno Martins de Assis", score: 41.50, area: "Marketing", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Comunicação Social", languages: ["PT", "EN"]},
+            {rank: 38, name: "Laís Alves da Silva Cruz", score: 41.30, area: "Inovação e Tecnologia", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 39, name: "Gustavo Henrique", score: 41.17, area: "Operações", gender: "Masculino", location: "São Paulo/SP", degree: "Engenharia Civil", languages: ["PT"]},
+            {rank: 40, name: "Vitória Tostes", score: 41.10, area: "Desenvolvimento e Novos Negócios", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Arquitetura", languages: ["PT", "EN"]},
+            {rank: 41, name: "Ana Caroline Luciano Belo Mozer", score: 41.00, area: "Não especificada", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 42, name: "Gabriel Gomes Loiola", score: 41.63, area: "Inteligência de Negócios", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Economia", languages: ["PT", "EN"]},
+            {rank: 43, name: "Rafaela Belker Soares Canuto", score: 41.00, area: "Desenvolvimento e Novos Negócios", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT", "EN"]},
+            {rank: 44, name: "Lucas Trotta", score: 41.00, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Engenharia de Produção", languages: ["PT", "EN"]},
+            {rank: 45, name: "Pedro Fernandes", score: 41.56, area: "Investimentos e M&A", gender: "Masculino", location: "São Paulo/SP", degree: "Economia", languages: ["PT", "EN"]},
+            {rank: 46, name: "Suellen Patrícia Frota De Souza", score: 41.01, area: "Operações", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 47, name: "Camila Vitória Sales da Silva Luiz", score: 41.00, area: "Operações", gender: "Feminino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 48, name: "Carlos Eduardo Freire", score: 40.72, area: "Financeiro", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Economia", languages: ["PT", "EN"]},
+            {rank: 49, name: "Murilo Fernandes", score: 40.00, area: "Não especificada", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Administração", languages: ["PT"]},
+            {rank: 50, name: "Gustavo Nogueira", score: 40.65, area: "Operações", gender: "Masculino", location: "Rio de Janeiro/RJ", degree: "Engenharia de Produção", languages: ["PT", "EN"]}

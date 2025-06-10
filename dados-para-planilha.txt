@@ -1,0 +1,51 @@
+NOME	GÊNERO	IDADE	TELEFONE	CIDADE	Rio/SP	DIVERSIDADE	LÓGICA (média 9)	GRADUAÇÃO EM	INSTITUIÇÃO	PÓS GRADUAÇÃO	INSTITUIÇÃO	INGLÊS	EXCEL AVANÇADO (SIM/NÃO)	REMUNERAÇÃO ATUAL	PRETENSÃO
+Miguel Thompson	Masculino	25	(21) 99615-2334	Rio de Janeiro	Rio	Branco	9	Administração	UFRJ - Universidade Federal do Rio de Janeiro	Não informada	N/A	Sim	Sim	R$ 3.500	R$ 4.500
+João Pedro Da Costa	Masculino	25	(21) 98018-8830	Rio de Janeiro	Rio	Pardo	9	Administração Pública	UFF - Universidade Federal Fluminense	Não informada	N/A	Sim	Sim	R$ 3.200	R$ 4.200
+Davi Rosa	Masculino	25	(21) 96447-4537	Duque de Caxias	Rio	Preto	8	Construção Civil	UCB - Universidade Castelo Branco	Não informada	N/A	Não	Sim	R$ 3.000	R$ 4.000
+Rian Marques	Masculino	25	(21) 99288-8777	Rio de Janeiro	Rio	Branco	9	MBA em Gestão de Negócios	MBA USP/Esalq	MBA	USP/Esalq	Sim	Sim	R$ 4.000	R$ 5.000
+Gustavo da Silva Santos	Masculino	30	(11) 97418-8883	São Paulo	SP	Branco	9	Engenharia de alimentos	UNICAMP	Não informada	N/A	Sim	Sim	R$ 4.500	R$ 5.500
+Rafael Marques Fernandes	Masculino	20	(21) 96464-9889	São Paulo	SP	Pardo	8	Sistemas de Informação	UNIFOA	Não informada	N/A	Sim	Sim	R$ 2.800	R$ 3.800
+Leonice Claudino Barbosa	Feminino	25	(87) 99610-9577	Serra Talhada	PE	Preta	8	Agronomia	UFRPE - UAST	Não informada	N/A	Não	Não	R$ 2.500	R$ 3.500
+Gustavo Cioni	Masculino	29	(11) 95934-4495	São Paulo	SP	Branco	9	Administração Pública	UNESP	Não informada	N/A	Sim	Sim	R$ 4.200	R$ 5.200
+Isabella Fernanda Vilalba	Feminino	23	(62) 98438-0833	Senador Canedo	GO	Parda	9	Análise de Dados	PUC Goiás	Não informada	N/A	Sim	Sim	R$ 3.000	R$ 4.000
+Fabio Paiva Greco Pereira	Masculino	25	(13) 98108-8863	Santos	SP	Branco	8	Gerenciamento de Projetos	FIA Business School	Especialização	FIA	Sim	Sim	R$ 4.000	R$ 5.000
+Rodney Souza	Masculino	28	(11) 94299-6766	São Paulo	SP	Preto	9	Economia	FGV	Não informada	N/A	Sim	Sim	R$ 5.000	R$ 6.000
+Vinícius Marques Santana Do Vale	Masculino	25	(21) 96752-5520	Rio de Janeiro	Rio	Pardo	8	Economia	UFRJ	Não informada	N/A	Sim	Não	R$ 3.500	R$ 4.500
+Carlos Eduardo Corrêa	Masculino	27	(21) 98038-1878	Rio de Janeiro	Rio	Branco	8	Administração	UFRRJ	Não informada	N/A	Sim	Sim	R$ 3.800	R$ 4.800
+Webert Miranda Barbosa Pereira	Masculino	26	(21) 98827-9900	Rio de Janeiro	Rio	Preto	7	Administração	UCAM	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Thiago Oliveira	Masculino	28	(21) 97900-2901	Niterói	Rio	Pardo	7	Contabilidade	UNESA	Não informada	N/A	Não	Sim	R$ 3.000	R$ 4.000
+Rosana Vinco	Feminino	30	(21) 97223-5678	Rio de Janeiro	Rio	Branca	7	Administração	FMU	Não informada	N/A	Não	Não	R$ 3.500	R$ 4.500
+Beatriz Santiago	Feminino	24	(21) 97159-2999	Rio de Janeiro	Rio	Parda	8	Marketing	ESPM	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Caio Cesar	Masculino	26	(21) 96732-7295	Rio de Janeiro	Rio	Branco	7	Administração	UFF	Não informada	N/A	Não	Não	R$ 3.000	R$ 4.000
+Pedro Moreno	Masculino	27	(21) 99388-8000	Rio de Janeiro	Rio	Branco	8	Administração	FGV	Não informada	N/A	Sim	Sim	R$ 4.500	R$ 5.500
+Pedro Henrique Rosa	Masculino	25	(21) 96821-6211	Rio de Janeiro	Rio	Pardo	7	Administração	UFRJ	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Matheus Henrique Mendes Faria	Masculino	24	(21) 97004-7744	Rio de Janeiro	Rio	Branco	8	Administração	PUC-Rio	Não informada	N/A	Sim	Sim	R$ 3.800	R$ 4.800
+Carlos Eduardo Silva	Masculino	26	(21) 96827-2222	Rio de Janeiro	Rio	Preto	7	Engenharia de Produção	UFRJ	Não informada	N/A	Sim	Sim	R$ 4.000	R$ 5.000
+Bruno Da silveira rabelo	Masculino	28	(11) 96454-6424	São Paulo	SP	Branco	9	Economia	FGV	Não informada	N/A	Sim	Sim	R$ 5.200	R$ 6.200
+Mariana Araújo	Feminino	25	(21) 97018-5758	Rio de Janeiro	Rio	Parda	8	Engenharia Civil	PUC-Rio	Não informada	N/A	Sim	Sim	R$ 4.200	R$ 5.200
+Tiago Santiago Guimarães	Masculino	27	(21) 97247-5556	Rio de Janeiro	Rio	Branco	7	Engenharia de Produção	CEFET/RJ	Não informada	N/A	Sim	Não	R$ 3.800	R$ 4.800
+Ian Carneiro	Masculino	26	(21) 99678-1515	Rio de Janeiro	Rio	Pardo	7	Administração	IBMEC	Não informada	N/A	Sim	Não	R$ 4.000	R$ 5.000
+Brenda Ribeiro	Feminino	24	(21) 96996-6227	Rio de Janeiro	Rio	Preta	7	Publicidade	UFRJ	Não informada	N/A	Sim	Não	R$ 3.000	R$ 4.000
+Gabriela Mastrocezare	Feminino	26	(11) 95088-2949	São Paulo	SP	Branca	8	Engenharia de Produção	USP	Não informada	N/A	Sim	Sim	R$ 4.500	R$ 5.500
+Gabriel Paiva	Masculino	25	(21) 97171-4400	Rio de Janeiro	Rio	Pardo	6	Administração	UFRRJ	Não informada	N/A	Não	Não	R$ 2.800	R$ 3.800
+Igor Lamarc	Masculino	27	(21) 97032-8255	Rio de Janeiro	Rio	Branco	7	Administração	UFF	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Ana Clara Leite Nogueira	Feminino	24	(21) 97290-6966	Rio de Janeiro	Rio	Branca	8	Engenharia Civil	UFRJ	Não informada	N/A	Sim	Sim	R$ 3.800	R$ 4.800
+Débora Araujo	Feminino	26	(11) 94003-6200	São Paulo	SP	Parda	7	Arquitetura	Mackenzie	Não informada	N/A	Sim	Não	R$ 4.000	R$ 5.000
+Rafaela Gavazza	Feminino	25	(21) 96408-7979	Rio de Janeiro	Rio	Branca	7	Administração	PUC-Rio	Não informada	N/A	Sim	Não	R$ 3.500	R$ 4.500
+Bruna Maia de Miranda	Feminino	24	(21) 97030-5113	Rio de Janeiro	Rio	Parda	7	Relações Internacionais	IBMR	Não informada	N/A	Sim	Não	R$ 3.000	R$ 4.000
+Roberto Henrique Neves	Masculino	28	(21) 98045-2229	Rio de Janeiro	Rio	Preto	6	Administração	UCAM	Não informada	N/A	Não	Não	R$ 3.000	R$ 4.000
+Thayná Dias	Feminino	23	(21) 99557-8797	Rio de Janeiro	Rio	Preta	6	Administração	UVA	Não informada	N/A	Não	Não	R$ 2.500	R$ 3.500
+Luiza Bueno Martins de Assis	Feminino	26	(21) 99806-3033	Rio de Janeiro	Rio	Branca	7	Comunicação Social	UFRJ	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Laís Alves da Silva Cruz	Feminino	25	(21) 97138-5862	Rio de Janeiro	Rio	Parda	6	Administração	UNESA	Não informada	N/A	Não	Não	R$ 2.800	R$ 3.800
+Gustavo Henrique	Masculino	26	(11) 95144-5533	São Paulo	SP	Branco	6	Engenharia Civil	UNINOVE	Não informada	N/A	Não	Não	R$ 3.500	R$ 4.500
+Vitória Tostes	Feminino	24	(21) 98011-1316	Rio de Janeiro	Rio	Parda	7	Arquitetura	UFF	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Ana Caroline Luciano Belo Mozer	Feminino	25	(21) 97985-8866	Rio de Janeiro	Rio	Preta	6	Administração	UFRRJ	Não informada	N/A	Não	Não	R$ 2.800	R$ 3.800
+Gabriel Gomes Loiola	Masculino	26	(21) 97125-9653	Rio de Janeiro	Rio	Branco	7	Economia	UFF	Não informada	N/A	Sim	Não	R$ 3.500	R$ 4.500
+Rafaela Belker Soares Canuto	Feminino	24	(21) 98838-7999	Rio de Janeiro	Rio	Branca	7	Administração	UFRJ	Não informada	N/A	Sim	Não	R$ 3.200	R$ 4.200
+Lucas Trotta	Masculino	25	(21) 98185-4456	Rio de Janeiro	Rio	Pardo	7	Engenharia de Produção	UFRJ	Não informada	N/A	Sim	Sim	R$ 4.000	R$ 5.000
+Pedro Fernandes	Masculino	27	(11) 94716-9200	São Paulo	SP	Branco	8	Economia	Insper	Não informada	N/A	Sim	Sim	R$ 5.500	R$ 6.500
+Suellen Patrícia Frota De Souza	Feminino	26	(21) 98032-6022	Rio de Janeiro	Rio	Parda	6	Administração	UCAM	Não informada	N/A	Não	Não	R$ 2.800	R$ 3.800
+Camila Vitória Sales da Silva Luiz	Feminino	23	(21) 96921-5258	Rio de Janeiro	Rio	Preta	6	Administração	UNESA	Não informada	N/A	Não	Não	R$ 2.500	R$ 3.500
+Carlos Eduardo Freire	Masculino	28	(21) 98147-9191	Rio de Janeiro	Rio	Branco	7	Economia	UERJ	Não informada	N/A	Sim	Não	R$ 3.800	R$ 4.800
+Murilo Fernandes	Masculino	26	(21) 97988-2100	Rio de Janeiro	Rio	Pardo	6	Administração	UFF	Não informada	N/A	Não	Não	R$ 3.000	R$ 4.000
+Gustavo Nogueira	Masculino	27	(21) 98760-0011	Rio de Janeiro	Rio	Branco	6	Engenharia de Produção	CEFET/RJ	Não informada	N/A	Sim	Não	R$ 3.800	R$ 4.800
